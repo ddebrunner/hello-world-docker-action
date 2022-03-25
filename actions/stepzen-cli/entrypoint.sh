@@ -2,5 +2,5 @@
 
 stepzen version
 
-echo $GITHUB_WORKSPACE
-ls $GITHUB_WORKSPACE
+stepzen upload --dir=$GITHUB_WORKSPACE/$1 schema $2
+stepzen deploy --schema $2 $2

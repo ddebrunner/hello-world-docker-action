@@ -19,4 +19,6 @@ jobs:
         run: echo "The time was ${{ steps.hello.outputs.time }}"
       - name: Install StepZen
         uses: ./actions/stepzen-cli
-        id: install-cli
+        id: deploy-empty
+        dir: schemas/empty
+        endpoint: deploy/test
