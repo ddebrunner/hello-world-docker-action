@@ -20,5 +20,6 @@ jobs:
       - name: Install StepZen
         uses: ./actions/stepzen-cli
         id: deploy-empty
-        dir: schemas/empty
-        endpoint: deploy/test
+        with:
+          dir: schemas/empty
+          endpoint: deploy/test
