@@ -11,11 +11,20 @@ inputs:
   script:
     description: "k6 script"
     required: true
+  vus:
+    description: "k6 virtual users"
+    default: 1
+  duration:
+    description: "k6 run duration"
+    default: 1s
+
 runs:
   using: "docker"
   image: "Dockerfile"
   env:
     SZ_ENDPOINT: ${{ inputs.endpoint }}
     SZ_API_KEY: ${{ inputs.apikey }}
+    K6_VUS: ${{ inputs.vus }}
+    K6_DURATION: ${{ inputs.duration }}
   args:
     - ${{ inputs.script }}
