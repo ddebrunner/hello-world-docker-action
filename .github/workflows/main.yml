@@ -4,13 +4,13 @@ jobs:
   hello_world_job:
     environment: Danville
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Deploy StepZen empty schema
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install StepZen
+      - name: Deploy StepZen
         uses: ./actions/stepzen-cli
         id: deploy-empty
         with:
@@ -18,4 +18,3 @@ jobs:
           adminkey: ${{ secrets.SZ_ADMIN_KEY }}
           dir: schemas/empty
           endpoint: deploy/test
-          dummy: job-dummy-literal
