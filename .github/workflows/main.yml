@@ -20,9 +20,8 @@ jobs:
       - name: Install StepZen
         uses: ./actions/stepzen-cli
         id: deploy-empty
-        env:
-          SZ_ACCOUNT: ${{ secrets.SZ_ACCOUNT }}
-          SZ_ADMIN_KEY: ${{ secrets.SZ_ADMIN_KEY }}
         with:
+          account: ${{ secrets.SZ_ACCOUNT }}
+          adminkey: ${{ secrets.SZ_ADMIN_KEY }}
           dir: schemas/empty
           endpoint: deploy/test

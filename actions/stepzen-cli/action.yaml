@@ -2,6 +2,12 @@
 name: "StepZen Deploy"
 description: "Deploy a StepZen schema"
 inputs:
+  account:
+    description: "account name"
+    required: true
+  adminkey:
+    description: "admin key"
+    required: true
   dir:
     description: "directory"
     required: true
@@ -17,8 +23,8 @@ runs:
   using: "docker"
   image: "Dockerfile"
   env:
-    SZ_ACCOUNT: ${{ env.SZ_ACCOUNT }}
-    SZ_ADMIN_KEY: ${{ env.SZ_ADMIN_KEY }}
+    SZ_ACCOUNT: ${{ inputs.account }}
+    SZ_ADMIN_KEY: ${{ inputs.adminkey }}
   args:
     - ${{ inputs.dir }}
     - ${{ inputs.endpoint }}
