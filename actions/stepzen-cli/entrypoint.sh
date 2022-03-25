@@ -1,7 +1,11 @@
 #!/bin/sh -l
-set -x
+
+sz_dir=$1
+sz_endpoint=$2
+
 set -e
 stepzen version
-
-stepzen upload --dir=$GITHUB_WORKSPACE/$1 schema $2
-stepzen deploy --schema $2 $2
+stepzen login --account "${SZ_ACCOUNT}" --admin "${SZ_ADMINKEY}"
+set -x
+stepzen upload --dir=$GITHUB_WORKSPACE/${sz_dir} schema ${sz_endpoint}
+stepzen deploy --schema ${sz_endpoint} ${sz_endpoint}
