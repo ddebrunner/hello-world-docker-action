@@ -1,5 +1,5 @@
-#!/bin/sh -l -x
-
+#!/bin/sh -l
+set -x
 stepzen version
 
 stepzen upload --dir=$GITHUB_WORKSPACE/$1 schema $2
