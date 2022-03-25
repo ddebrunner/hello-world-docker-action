@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy StepZen
-        uses: ./actions/stepzen-cli
+        uses: ./actions/stepzen-deploy
         id: deploy-empty
         with:
           account: ${{ secrets.SZ_ACCOUNT }}
