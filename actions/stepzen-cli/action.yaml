@@ -16,6 +16,9 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
+  env:
+    SZ_ACCOUNT: ${{ env.SZ_ACCOUNT }}
+    SZ_ADMIN_KEY: ${{ env.SZ_ADMIN_KEY }}
   args:
     - ${{ inputs.dir }}
     - ${{ inputs.endpoint }}

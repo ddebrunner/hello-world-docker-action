@@ -3,6 +3,8 @@
 sz_dir=$1
 sz_endpoint=$2
 
+env
+
 set -e
 stepzen version
 stepzen login --account "${SZ_ACCOUNT}" --adminkey "${SZ_ADMINKEY}"
