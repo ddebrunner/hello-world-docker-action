@@ -1,0 +1,21 @@
+# action.yml
+name: "StepZen K6 load test"
+description: "Runs a k6 script against an endpoint"
+inputs:
+  endpoint:
+    description: "endpoint URL"
+    required: true
+  apikey:
+    description: "StepZen API key"
+    required: true
+  script:
+    description: "k6 script"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    SZ_ENDPOINT: ${{ inputs.endpoint }}
+    SZ_API_KEY: ${{ inputs.apikey }}
+  args:
+    - ${{ inputs.script }}
