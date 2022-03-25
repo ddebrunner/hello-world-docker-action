@@ -16,6 +16,9 @@ inputs:
     description: "endpoint"
     required: true
     default: "test/test"
+  dummy:
+    description: "dummy env"
+    required: true
 outputs:
   time: # id of output
     description: "The time we greeted you"
@@ -25,6 +28,7 @@ runs:
   env:
     SZ_ACCOUNT: ${{ inputs.account }}
     SZ_ADMIN_KEY: ${{ inputs.adminkey }}
+    DUMMY: ${{ inputs.dummy }}
   args:
     - ${{ inputs.dir }}
     - ${{ inputs.endpoint }}
