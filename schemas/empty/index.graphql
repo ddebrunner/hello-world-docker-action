@@ -1,0 +1,10 @@
+"""
+The simplest GraphQL schema
+"""
+schema {
+  query: Query
+}
+
+type Query {
+  empty:String
+}

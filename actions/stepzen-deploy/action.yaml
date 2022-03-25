@@ -1,0 +1,27 @@
+# action.yml
+name: "StepZen Deploy"
+description: "Deploy a StepZen schema"
+inputs:
+  account:
+    description: "account name"
+    required: true
+  adminkey:
+    description: "admin key"
+    required: true
+  dir:
+    description: "directory"
+    required: true
+    default: "."
+  endpoint:
+    description: "endpoint"
+    required: true
+    default: "test/test"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    SZ_ACCOUNT: ${{ inputs.account }}
+    SZ_ADMIN_KEY: ${{ inputs.adminkey }}
+  args:
+    - ${{ inputs.dir }}
+    - ${{ inputs.endpoint }}
