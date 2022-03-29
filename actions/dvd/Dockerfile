@@ -1,4 +1,4 @@
 FROM postgres:12.10-alpine
 
-COPY restore.sh /docker-entrypoint-initdb.d/
+COPY 100_restore.sh  999_stop.sh /docker-entrypoint-initdb.d/
 
