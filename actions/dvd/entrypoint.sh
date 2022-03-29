@@ -3,7 +3,7 @@
 set -x
 set -e
 
-ls
+find / -name '*entrypoint.sh'
 
 wget https://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 unzip dvdrental.zip
