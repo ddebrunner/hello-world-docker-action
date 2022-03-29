@@ -1,2 +1,2 @@
 #!/bin/sh -l
-pg_ctl stop
+pg_ctl stop --mode=smart
