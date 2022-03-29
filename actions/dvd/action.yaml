@@ -5,3 +5,5 @@ description: "Load PostgresSQL DVD rental database"
 runs:
   using: "docker"
   image: "Dockerfile"
+  env:
+    POSTGRES_DB: dvdrental

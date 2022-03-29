@@ -1,5 +1,4 @@
 FROM postgres:12.10-alpine
 
-COPY entrypoint.sh /entrypoint.sh
+COPY restore.sh /docker-entrypoint-initdb.d/
 
-ENTRYPOINT ["/entrypoint.sh"]
