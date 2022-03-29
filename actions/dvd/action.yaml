@@ -6,4 +6,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
   env:
+    POSTGRES_PASSWORD: super42secret
     POSTGRES_DB: dvdrental
