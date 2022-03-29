@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 # Run the Postgres setup
-/bin/sh /usr/local/bin/docker-entrypoint.sh
+/bin/bash /usr/local/bin/docker-entrypoint.sh
 
 set -x
 set -e
