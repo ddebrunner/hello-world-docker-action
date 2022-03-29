@@ -11,3 +11,5 @@ pg_restore -U postgres -d ${POSTGRES_DB} dvdrental.tar
 rm dvdrental.tar
 
 ls ${GITHUB_WORKSPACE}
+
+pg_ctl stop
