@@ -17,3 +17,6 @@ jobs:
           lct=`git show -s --format=%ct ${GITHUB_SHA}`
           let "elapsed=${now} - ${lct}"
           echo ${elapsed}
+          let "four_hours=4*60*60"
+          echo ${elapsed} ${four_hours}
+          test "${elapsed}" -gt "${four_hours}" && echo “true” || echo “false”
