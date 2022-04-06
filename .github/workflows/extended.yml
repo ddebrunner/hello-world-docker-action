@@ -22,12 +22,12 @@ jobs:
           run_tests=`test "${since}" -gt "${four_hours}"`
           echo ::set-env name=run_tests::${run_tests}
       - name: Skip tests
-        id: norun
-        if: ${{run_tests}} == 0
+        id: no-recent-commit
+        if: ${{ env.run_tests }} == 0
         run: |
           echo "No recent commit"
       - name: Running tests
-        id: norun
-        if: ${{run_tests}} == 1
+        id: recent-commit
+        if: ${{ env.run_tests} } == 1
         run: |
           echo "Recent commit"
