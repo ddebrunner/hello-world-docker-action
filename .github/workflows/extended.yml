@@ -13,6 +13,7 @@ jobs:
       - name: Time of last commit
         id: committime
         run: |
+          set -x
           now=`date +%s`
           lct=`git show -s --format=%ct ${GITHUB_SHA}`
           let "since=${now} - ${lct}"
