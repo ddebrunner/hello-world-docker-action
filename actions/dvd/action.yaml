@@ -1,0 +1,10 @@
+# action.yml
+name: "postgres-dvdrental"
+description: "Load PostgresSQL DVD rental database"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    POSTGRES_PASSWORD: super42secret
+    POSTGRES_DB: dvdrental

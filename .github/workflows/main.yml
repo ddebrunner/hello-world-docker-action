@@ -10,11 +10,6 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy StepZen
-        uses: ./actions/stepzen-deploy
-        id: deploy-empty
-        with:
-          account: ${{ secrets.SZ_ACCOUNT }}
-          adminkey: ${{ secrets.SZ_ADMIN_KEY }}
-          dir: schemas/empty
-          endpoint: deploy/test
+      - name: Test dvd
+        uses: ./actions/dvd
+        id: deploy-dvd
