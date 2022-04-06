@@ -20,8 +20,7 @@ jobs:
           let "four_hours=4*60*60"
           # Want 1 (shell false) to run tests
           run_tests=`test "${since}" -gt "${four_hours}"`
-          echo ::set-output name=docker_tag::${run_tests}
-                - name: Time of last commit
+          echo ::set-output name=run_tests::${run_tests}
       - name: Skip tests
         id: norun
         if: outputs.run_tests == 0
