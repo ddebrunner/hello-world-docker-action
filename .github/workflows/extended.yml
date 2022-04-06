@@ -11,12 +11,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Time of last commit
-        id: step_one
+        id: committime
         run: |
           now=`date +%s`
           lct=`git show -s --format=%ct ${GITHUB_SHA}`
-          let "elapsed=${now} - ${lct}"
-          echo ${elapsed}
+          let "since=${now} - ${lct}"
+          echo ${since}
           let "four_hours=4*60*60"
-          echo ${elapsed} ${four_hours}
-          test "${elapsed}" -gt "${four_hours}" && echo “true” || echo “false”
+          # Want 1 (shell false) to run tests
+          run_tests=`test "${since}" -gt "${four_hours}"`
+          echo ::set-output name=docker_tag::${run_tests}
+                - name: Time of last commit
+      - name: Skip tests
+        id: norun
+        if: outputs.run_tests == 0
+        run: |
+          echo "No recent commit"
+      - name: Running tests
+        id: norun
+        if: outputs.run_tests == 1
+        run: |
+          echo "Recent commit"
