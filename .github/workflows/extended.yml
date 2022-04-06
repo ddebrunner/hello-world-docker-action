@@ -20,14 +20,14 @@ jobs:
           let "four_hours=4*60*60"
           # Want 1 (shell false) to run tests
           run_tests=`test "${since}" -gt "${four_hours}"`
-          echo ::set-output name=run_tests::${run_tests}
+          echo ::set-env name=run_tests::${run_tests}
       - name: Skip tests
         id: norun
-        if: outputs.run_tests == 0
+        if: ${{run_tests}} == 0
         run: |
           echo "No recent commit"
       - name: Running tests
         id: norun
-        if: outputs.run_tests == 1
+        if: ${{run_tests}} == 1
         run: |
           echo "Recent commit"
