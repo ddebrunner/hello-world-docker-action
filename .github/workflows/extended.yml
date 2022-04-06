@@ -20,7 +20,7 @@ jobs:
           let "hours=4*60*60"
           run_tests=skip
           echo "h1"
-          if [ "${since}" -gt "${hours}" ]; then; run_tests=run; fi
+          if [ "${since}" -gt "${hours}" ]; then run_tests=run; fi
           echo "h2"
           echo "run_tests=${run_tests}" >> $GITHUB_ENV
       - name: Skip tests
