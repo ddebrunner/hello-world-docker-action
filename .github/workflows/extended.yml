@@ -1,0 +1,15 @@
+on:
+  schedule: "21 1/1 * * *"
+
+jobs:
+  extended-testing:
+    environment: Danville
+    runs-on: ubuntu-latest
+    name: Extended testing
+    steps:
+      - name: Set the value in bash
+        id: step_one
+        run: |
+          now=`date +%s`
+          echo ${GITHUB_SHA}
+          git show -s --format=%ct ${GITHUB_SHA}
