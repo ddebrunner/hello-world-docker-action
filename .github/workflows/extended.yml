@@ -17,14 +17,11 @@ jobs:
           now=`date +%s`
           lct=`git show -s --format=%ct ${GITHUB_SHA}`
           let "since=${now} - ${lct}"
-          echo ${since}
-          let "hours=4*60*60"
+          let "hours=5*60*60"
           run_tests=skip
-          echo "h1"
           if [ "${since}" -lt "${hours}" ]; then run_tests=run; fi
-          echo "h2-2"
           # echo "run_tests=${run_tests}" >> $GITHUB_ENV
-          echo ::set-output name=run_test::${run_test}
+          echo ::set-output name=run_test::${run_tests}
       - name: Skip tests
         id: no-recent-commit
         if: steps.ct.outputs.run_tests == 'skip'
