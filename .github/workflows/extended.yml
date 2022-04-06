@@ -20,7 +20,7 @@ jobs:
           let "four_hours=4*60*60"
           # Want 1 (shell false) to run tests
           run_tests=`test "${since}" -gt "${four_hours}"`
-          echo ::set-env name=run_tests::${run_tests}
+          echo "run_tests=${run_tests}" >> $GITHUB_ENV
       - name: Skip tests
         id: no-recent-commit
         if: ${{ env.run_tests }} == 0
