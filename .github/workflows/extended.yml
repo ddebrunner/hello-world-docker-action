@@ -28,6 +28,6 @@ jobs:
           echo "No recent commit"
       - name: Running tests
         id: recent-commit
-        if: ${{ env.run_tests} } == 1
+        if: ${{ env.run_tests }} == 1
         run: |
           echo "Recent commit"
