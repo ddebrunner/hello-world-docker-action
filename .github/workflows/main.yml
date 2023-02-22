@@ -3,7 +3,7 @@ on:
 
 jobs:
   hello_world_job:
-    environment: Danville
+    timeout-minutes: 2
     runs-on: ubuntu-latest
     name: Deploy StepZen empty schema
     steps:
@@ -15,3 +15,5 @@ jobs:
           curl https://danville.stepzen.net/api/edgy-ibis/__graphql \
             --header "Content-Type: application/json" \
             --data-raw '{ "query": "{me{clientIp} }" }'
+      - run: |
+          python3 -m http.server 8443
