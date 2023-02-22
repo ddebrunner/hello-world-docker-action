@@ -1,4 +1,5 @@
-on: [push]
+on:
+  workflow_dispatch:
 
 jobs:
   hello_world_job:
@@ -10,11 +11,4 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy StepZen
-        uses: ./actions/stepzen-deploy
-        id: deploy-empty
-        with:
-          account: ${{ secrets.SZ_ACCOUNT }}
-          adminkey: ${{ secrets.SZ_ADMIN_KEY }}
-          dir: schemas/empty
-          endpoint: deploy/test
+      - run: curl https://danville.stepzen.net/api/edgy-ibis/__graphql --header "Content-Type: application/json" --data-raw '{ "query": "{me{clientIp} }" }'
