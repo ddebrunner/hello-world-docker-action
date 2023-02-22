@@ -11,4 +11,7 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - run: curl https://danville.stepzen.net/api/edgy-ibis/__graphql --header "Content-Type: application/json" --data-raw '{ "query": "{me{clientIp} }" }'
+      - run: |
+          curl https://danville.stepzen.net/api/edgy-ibis/__graphql \
+            --header "Content-Type: application/json" \
+            --data-raw '{ "query": "{me{clientIp} }" }'
