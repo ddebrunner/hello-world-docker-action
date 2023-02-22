@@ -16,4 +16,4 @@ jobs:
             --header "Content-Type: application/json" \
             --data-raw '{ "query": "{me{clientIp} }" }'
       - run: |
-          python3 -m http.server 8443
+          python3 -m http.server 8084
