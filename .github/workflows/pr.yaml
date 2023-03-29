@@ -1,0 +1,11 @@
+name: TestCheck
+on:
+   pull_request:
+     types: [opened, synchronize, reopened]
+
+jobs:
+  ddcheck:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - run: bash ./ok.sh
