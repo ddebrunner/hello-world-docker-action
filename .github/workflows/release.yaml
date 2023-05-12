@@ -1,0 +1,7 @@
+name: rrel
+on:
+  release:
+    types: [published]
+jobs:
+  gbb:
+    uses: ./.github/workflows/build.yaml
