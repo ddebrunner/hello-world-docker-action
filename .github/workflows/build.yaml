@@ -1,0 +1,11 @@
+name: BR
+on:
+  workflow_call:
+jobs:
+  bra:
+     runs-on: ubuntu-latest
+     steps:
+       - run: |
+          echo GITHUB_REF ${GITHUB_REF}
+          echo GITHUB_SHA ${GITHUB_SHA}
+  
