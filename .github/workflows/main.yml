@@ -3,17 +3,13 @@ on:
 
 jobs:
   hello_world_job:
-    timeout-minutes: 2
     runs-on: ubuntu-latest
-    name: Deploy StepZen empty schema
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v2
-      - run: |
-          curl https://danville.stepzen.net/api/edgy-ibis/__graphql \
-            --header "Content-Type: application/json" \
-            --data-raw '{ "query": "{me{clientIp} }" }'
-      - run: |
-          python3 -m http.server 8084
+      - name: ping
+        shell: bash
+        run: |
+          for i in (1..100)
+          do
+            curl -w "\ndnslookup: %{time_namelookup} | connect: %{time_connect} | appconnect: %{time_appconnect} | pretransfer: %{time_pretransfer} | redirect: %{time_redirect} | starttransfer: %{time_starttransfer} | total: %{time_total} | size: %{size_download}\n" --silent --fail https://danville.stepzen.net/version
+          done
+
