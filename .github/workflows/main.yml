@@ -8,7 +8,7 @@ jobs:
       - name: ping
         shell: bash
         run: |
-          for i in (1..100)
+          for i in {1..100}
           do
             curl -w "\ndnslookup: %{time_namelookup} | connect: %{time_connect} | appconnect: %{time_appconnect} | pretransfer: %{time_pretransfer} | redirect: %{time_redirect} | starttransfer: %{time_starttransfer} | total: %{time_total} | size: %{size_download}\n" --silent --fail https://danville.stepzen.net/version
           done
