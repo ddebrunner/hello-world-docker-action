@@ -10,8 +10,10 @@ jobs:
          include:
            - color: pink
              animal: cat
+             pink: dummy
            - color: blue
              animal: cat
+             blue: dummy
            - fruit: banana
              animal: wolf
              color: teal
