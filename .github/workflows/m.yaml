@@ -7,16 +7,13 @@ jobs:
        matrix:
          fruit: [apple, pear]
          animal: [cat, dog]
+         color: [pink]
          include:
-           - color: pink
-             animal: cat
            - color: blue
              animal: cat
            - fruit: banana
              animal: wolf
              color: teal
-           - color: red
-             animal: dog
      runs-on: ubuntu-latest
      steps:
        - run: |
