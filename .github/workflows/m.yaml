@@ -16,4 +16,6 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - run: |
-          echo ${{ matrix }}
+          echo fruit ${{ matrix.fruit }}
+          echo animal ${{ matrix.animal }}
+          echo color ${{ matrix.color }}
