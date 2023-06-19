@@ -6,7 +6,7 @@ jobs:
      strategy:
        matrix:
          fruit: [apple, pear]
-         animal: [cat, dog]
+         animal: [cat]
          include:
            - color: pink
              animal: cat
