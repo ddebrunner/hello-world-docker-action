@@ -6,17 +6,17 @@ jobs:
      strategy:
        matrix:
          fruit: [apple, pear]
-         animal: [cat]
+         animal: [cat, dog]
          include:
            - color: pink
              animal: cat
-             pink: dummy
            - color: blue
              animal: cat
-             blue: dummy
            - fruit: banana
              animal: wolf
              color: teal
+           - color: red
+             animal: dog
      runs-on: ubuntu-latest
      steps:
        - run: |
