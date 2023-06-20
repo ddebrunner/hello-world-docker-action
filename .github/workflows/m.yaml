@@ -3,20 +3,14 @@ on:
   workflow_dispatch:
 jobs:
   mat:
+     timeout-minutes: 2
      strategy:
        matrix:
-         fruit: [apple, pear]
-         animal: [cat, dog]
-         color: [pink]
-         include:
-           - color: blue
-             animal: cat
-           - fruit: banana
-             animal: wolf
-             color: teal
+         fruit: [apple]
+         animal: [cat]
      runs-on: ubuntu-latest
      steps:
        - run: |
           echo fruit ${{ matrix.fruit }}
           echo animal ${{ matrix.animal }}
-          echo color ${{ matrix.color }}
+          sleep 600
