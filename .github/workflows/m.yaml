@@ -17,5 +17,6 @@ jobs:
        - run: |
           echo fruit ${{ matrix.fruit }}
           echo animal ${{ matrix.animal }}
-          env
+          echo 'ENV'
+          env | grep STEPZEN
          env: ${{ fromJSON(inputs.envvars) }}
