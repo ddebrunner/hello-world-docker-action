@@ -16,4 +16,11 @@ jobs:
      with:
        fruit: ${{ matrix.fruit }}
        animal: ${{ matrix.animal }}
-       evs: '${{ format(''{{ "A1": "{0}", "A2": "{1}" }}'', matrix.fruit, matrix.animal ) }}'
+       evs: |
+           ${{ format(
+             '{{
+                 "A1": "{0}",
+                 "A2": "{1}"
+             }}'
+            , matrix.fruit, matrix.animal )
+           }}
