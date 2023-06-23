@@ -20,5 +20,5 @@ jobs:
           echo 'ENV'
           # env | grep STEPZEN
           echo 'JSON'
-          echo ${{ format('{{ "A1": {0}, "A2": {1} }}', matrix.fruit, matrix.animal ) }}
+          echo ${{ format('{{ "A1": "{0}", "A2": "{1}" }}', matrix.fruit, matrix.animal ) }}
          # env: ${{ fromJSON(toJSON()) }}
