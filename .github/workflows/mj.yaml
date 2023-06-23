@@ -1,0 +1,25 @@
+name: MJ
+on:
+  workflow_call:
+    inputs:
+      fruit: 
+        required: true
+        type: string
+      animal: 
+        required: true
+        type: string
+      evs:
+        required: false
+        default: "{}"
+        type: string
+jobs:
+  mjj:
+     runs-on: ubuntu-latest
+     steps:
+       - run: |
+           echo fruit ${{ matrix.fruit }}
+           echo animal ${{ matrix.animal }}
+           echo 'ENV'
+           env | sort
+           echo 'JSON'
+         env: ${{ fromJSON( inputs.evs ) }}
