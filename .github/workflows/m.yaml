@@ -4,6 +4,7 @@ on:
     inputs:
       envvars:
         required: false
+        default: "{}"
         type: string
 jobs:
   mat:
