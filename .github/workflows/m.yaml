@@ -1,9 +1,12 @@
 name: M
 on:
   workflow_dispatch:
+    inputs:
+      envvars:
+        required: false
+        type: string
 jobs:
   mat:
-     timeout-minutes: 2
      strategy:
        matrix:
          fruit: [apple]
@@ -13,4 +16,5 @@ jobs:
        - run: |
           echo fruit ${{ matrix.fruit }}
           echo animal ${{ matrix.animal }}
-          sleep 600
+          env
+         env: ${{ fromJSON(inputs.envvars) }}
