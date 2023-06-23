@@ -19,4 +19,6 @@ jobs:
           echo animal ${{ matrix.animal }}
           echo 'ENV'
           env | grep STEPZEN
-         env: ${{ fromJSON(inputs.envvars) }}
+          echo 'JSON'
+          echo ${{ format('{ "A1": {0}, "A2": {0} }', matrix.fruit, matrix.animal ) }}
+         # env: ${{ fromJSON(toJSON()) }}
