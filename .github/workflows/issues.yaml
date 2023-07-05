@@ -14,6 +14,6 @@ jobs:
     steps:
       - run: |
           echo 'Issue' ${{ github.event.issue }}
-          echo 'ID' ${{ github.event.issue.id }}
+          echo 'Number' ${{ github.event.issue.number }}
           echo 'Title' ${{ github.event.issue.title }}
           echo 'URL' ${{ github.event.issue.url }}
