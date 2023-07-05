@@ -1,0 +1,20 @@
+name: New Issues
+
+on:
+  issues:
+    types:
+      - opened
+      - transfered
+      - reopened
+
+
+jobs:
+  post-to-slack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: |
+        echo 'Issue' ${{ github.event.issue }}
+        echo 'ID' ${{ github.event.issue.id }}
+        echo 'Title' ${{ github.event.issue.title }}
+        echo 'URL' ${{ github.event.issue.url }}
