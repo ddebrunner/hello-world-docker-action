@@ -1,15 +1,33 @@
 on:
+  push:
   schedule:
-    - cron: "28/5 1/1 * * *"
+    - cron: "28 1/1 * * *"
 
 jobs:
   extended-testing:
     runs-on: ubuntu-latest
     name: Extended testing
     steps:
-      - name: Set the value in bash
-        id: step_one
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: echo more details id ${GITHUB_RUN_ID} number  ${GITHUB_RUN_NUMBER} attempt ${GITHUB_RUN_ATTEMPT} 
+      - name: Time of last commit
+        id: ct
         run: |
+          set -x
           now=`date +%s`
-          echo ${GITHUB_SHA}
-          git show -s --format=%ct ${GITHUB_SHA}
+          lct=`git show -s --format=%ct ${GITHUB_SHA}`
+          let "since=${now} - ${lct}"
+          let "hours=5*60*60"
+          run_tests=skip
+          if [ "${since}" -lt "${hours}" ]; then run_tests=run; fi
+          # echo "run_tests=${run_tests}" >> $GITHUB_ENV
+          echo ::set-output name=run_tests::${run_tests}
+      - name: Will SKIP
+        id: no-recent-commit
+        if: steps.ct.outputs.run_tests == 'skip'
+        run: echo "No recent commit"
+      - name: Will RUN
+        id: recent-commit
+        if: steps.ct.outputs.run_tests == 'run'
+        run: echo "Recent commit"
