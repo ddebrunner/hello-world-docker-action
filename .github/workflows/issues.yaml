@@ -23,7 +23,7 @@ jobs:
           echo 'Title' ${{ github.event.issue.title }}
           echo 'URL' ${{ github.event.issue.url }}
           echo $(printf "%s/%s/issues/%s", "${{ github.server_url }}" "${{ github.repository }}" "${{ github.event.issue.number }}" )
-      - if: github.event_name == 'pull_request'
+      - if: github.event_name == 'pull_request' && !github.event.pull_request.isDraft
         run: |
           echo 'PR' ${{ github.event.pull_request }}
           echo 'Number' ${{ github.event.pull_request.number }}
