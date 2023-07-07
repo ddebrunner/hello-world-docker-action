@@ -21,14 +21,14 @@ jobs:
           echo 'Issue' ${{ github.event.issue }}
           echo 'Number' ${{ github.event.issue.number }}
           echo 'Title' ${{ github.event.issue.title }}
-          echo 'URL' ${{ github.event.issue.url }}
+          echo 'URL' ${{ github.event.issue.html_url }}
           echo $(printf "%s/%s/issues/%s", "${{ github.server_url }}" "${{ github.repository }}" "${{ github.event.issue.number }}" )
-      - if: github.event_name == 'pull_request' && github.event.pull_request.isDraft == false
+      - if: github.event_name == 'pull_request' && !github.event.pull_request.draft
         run: |
           echo 'PR' '${{ toJSON(github.event.pull_request) }}'
           echo 'Number' ${{ github.event.pull_request.number }}
           echo 'Action' ${{ github.event.action }}
           echo 'Title' ${{ github.event.pull_request.title }}
           echo 'Draft' ${{ github.event.pull_request.isDraft }}
-          echo 'URL' ${{ github.event.pull_request.url }}
+          echo 'URL' ${{ github.event.pull_request.html_url }}
           echo $(printf "%s/%s/pull/%s", "${{ github.server_url }}" "${{ github.repository }}" "${{ github.event.pull_request.number }}" )
