@@ -29,5 +29,6 @@ jobs:
           echo 'Number' ${{ github.event.pull_request.number }}
           echo 'Action' ${{ github.event.action }}
           echo 'Title' ${{ github.event.pull_request.title }}
+          echo 'Draft' ${{ github.event.pull_request.isDraft }}
           echo 'URL' ${{ github.event.pull_request.url }}
           echo $(printf "%s/%s/pull/%s", "${{ github.server_url }}" "${{ github.repository }}" "${{ github.event.pull_request.number }}" )
