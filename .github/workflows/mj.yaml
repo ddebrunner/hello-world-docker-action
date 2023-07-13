@@ -17,7 +17,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - run: |
-           echo fruit ${{ matrix.fruit }}
+           echo 'fruit ${{ matrix.fruit }}'
            echo animal ${{ matrix.animal }}
            echo 'ENV'
            env | sort
