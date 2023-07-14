@@ -16,8 +16,8 @@ jobs:
   post-to-slack:
     runs-on: ubuntu-latest
     steps:
-      - run: bash ./ee.sh
-      - run: bash ./ee.sh
+      - run: bash ${GITHUB_WORKSPACE}/ee.sh
+      - run: bash ${GITHUB_WORKSPACE}/ee.sh
       - if: github.event_name == 'issues'
         run: |
           echo 'Issue' ${{ github.event.issue }}
