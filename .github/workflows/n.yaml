@@ -1,0 +1,17 @@
+name: N
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      deploys:
+        required: true
+        default: "dev"
+        type: string
+env:
+  W: ${{ github.event_type == workflow_dispatch && inputs.deploys || all }}
+
+jobs:
+  nn:
+    runs-on: ubuntu-latest
+  steps:
+    run: echo "W is" ${W}
