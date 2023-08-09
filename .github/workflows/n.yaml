@@ -5,18 +5,25 @@ on:
     inputs:
       d1:
         required: true
-        default: true
+        default: false
         type: boolean
       d2:
         required: true
-        default: true
+        default: false
         type: boolean
 env:
-  D1: ${{ github.event_name == 'workflow_dispatch' && inputs.d1 || true }}
-  D2: ${{ github.event_name == 'workflow_dispatch' && inputs.d2 || true }}
+  SKIP_D1: ${{ github.event_name == 'workflow_dispatch' && inputs.d1 || false }}
+  SKIP_D2: ${{ github.event_name == 'workflow_dispatch' && inputs.d2 || false }}
 
 jobs:
-  nn:
+  nn-1:
+    if: env.SKIP_D1 == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "D1 is" ${D1}
+      - run: echo "D2 is" ${D2}
+  nn-2:
+    if: env.SKIP_D2 == 'false'
     runs-on: ubuntu-latest
     steps:
       - run: echo "D1 is" ${D1}
