@@ -9,9 +9,12 @@ on:
         type: string
 env:
   W: ${{ github.event_name == 'workflow_dispatch' && inputs.deploys || 'all' }}
+  X: ${{ inputs.deploys }}
 
 jobs:
   nn:
     runs-on: ubuntu-latest
     steps:
       - run: echo "W is" ${W}
+      - run: echo "X is" ${X}
+      - run: echo "Y is" ${{ inputs.deploys }}
