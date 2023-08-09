@@ -3,18 +3,21 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      deploys:
+      d1:
         required: true
-        default: "dev"
-        type: string
+        default: true
+        type: boolean
+      d2:
+        required: true
+        default: true
+        type: boolean
 env:
-  W: ${{ github.event_name == 'workflow_dispatch' && inputs.deploys || 'all' }}
-  X: ${{ inputs.deploys }}
+  D1: ${{ github.event_name == 'workflow_dispatch' && inputs.d1 || true }}
+  D2: ${{ github.event_name == 'workflow_dispatch' && inputs.d2 || true }}
 
 jobs:
   nn:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "W is" ${W}
-      - run: echo "X is" ${X}
-      - run: echo "Y is" ${{ inputs.deploys }}
+      - run: echo "D1 is" ${D1}
+      - run: echo "D2 is" ${D2}
