@@ -8,7 +8,7 @@ on:
         default: "dev"
         type: string
 env:
-  W: ${{ github.event_type == 'workflow_dispatch' && inputs.deploys || 'all' }}
+  W: ${{ github.event_name == 'workflow_dispatch' && inputs.deploys || 'all' }}
 
 jobs:
   nn:
