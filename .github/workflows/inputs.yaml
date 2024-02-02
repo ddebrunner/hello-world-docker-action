@@ -9,7 +9,7 @@ env:
   TAG: ${{ inputs.my-var || 'abc' }}
 jobs:
   some-job:
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: check-env
         run: env
