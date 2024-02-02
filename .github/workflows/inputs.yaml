@@ -1,0 +1,15 @@
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      my-var:
+        type: string
+
+env:
+  TAG: ${{ inputs.my-var || 'abc' }}
+jobs:
+  some-job:
+    runs-on: ubuntu
+    steps:
+      - name: check-env
+        run: env
