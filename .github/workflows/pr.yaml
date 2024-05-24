@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v4
     - run: bash ./ok.sh
     - uses: stepzen-dev/stepzen-install@v1
-    - uses: stepzen-dev/stepzen-login@v1
+    - uses: stepzen-dev/stepzen-login@1c112dbfd8ac3e14bb4fb93b699600a35e9c0da1
       with:
        domain: "us-"
        account: "abc"
