@@ -5,6 +5,9 @@ inputs:
   adminkey:  # id of input
     description: 'Who to greet'
     required: true
+  token:  # id of input
+    description: 'Who to greet'
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -12,5 +15,6 @@ runs:
     - name: mask
       shell: bash
       run: |
-        adminkey=${{ inputs['adminkey'] }}
+        xx=${{ inputs.token }}
+        adminkey=$(cat ${{ inputs}} | jq -r .adminkey)
         echo "::add-mask::${adminkey}"
