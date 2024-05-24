@@ -7,7 +7,7 @@ jobs:
   ddcheck:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - run: bash ./ok.sh
     - uses: stepzen-dev/stepzen-install@v1
     - uses: stepzen-dev/stepzen-login@v1
