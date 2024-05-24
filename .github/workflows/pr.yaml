@@ -9,3 +9,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: bash ./ok.sh
+    - uses: stepzen-dev/stepzen-install@v1
+    - uses: stepzen-dev/stepzen-login@v1
+      with:
+       domain: "us-"
+       account: "abc"
+       adminkey: "super-tokern"
