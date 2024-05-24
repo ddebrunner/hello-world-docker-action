@@ -11,3 +11,4 @@ jobs:
     - uses: ./actions/hello
       with:
        adminkey: "super-tokern"
+       token: "very-hush-hush"
