@@ -15,6 +15,7 @@ runs:
     - name: mask
       shell: bash
       run: |
+        env
         xx=${{ inputs.token }}
         echo ${{ toJSON(inputs) }}
         adminkey=$(jq -r '.adminkey' ${{ toJSON(inputs) }})
