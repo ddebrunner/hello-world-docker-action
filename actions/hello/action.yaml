@@ -16,5 +16,5 @@ runs:
       shell: bash
       run: |
         xx=${{ inputs.token }}
-        adminkey=$(cat ${{ inputs}} | jq -r .adminkey)
+        adminkey=$(echo ${{ inputs }} | jq -r .adminkey)
         echo "::add-mask::${adminkey}"
