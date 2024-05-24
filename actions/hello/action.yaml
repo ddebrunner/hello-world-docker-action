@@ -17,5 +17,5 @@ runs:
       run: |
         xx=${{ inputs.token }}
         echo ${{ toJSON(inputs) }}
-        adminkey=$(echo ${{ toJSON(inputs) }} | jq -r .adminkey)
+        adminkey=$(jq -r '.adminkey' ${{ toJSON(inputs) }})
         echo "::add-mask::${adminkey}"
