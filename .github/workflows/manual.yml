@@ -31,6 +31,6 @@ jobs:
     # Runs a single command using the runners shell
      - name: pull db2 image
        run: docker pull icr.io/db2_community/db2
-     - run: docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000:50000 --env-file .env_list -v ./docker:/database icr.io/db2_community/db2
+     - run: docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000:50000 --env-file docker/.env_list -v ./docker:/database icr.io/db2_community/db2
      - run: sleep 30
      - run: docker ps
