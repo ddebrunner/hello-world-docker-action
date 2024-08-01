@@ -34,4 +34,5 @@ jobs:
      - run: docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000:50000 --env-file docker/.env_list -v ./docker:/database icr.io/db2_community/db2
      - run: sleep 60
      - run: docker ps
-     - run: echo 'db2sampl -force -sql i' | docker exec -ti db2server bash -c "su - db2inst1" 
+     - run: docker exec db2server bash -c "ls" 
+     - run: docker exec -t db2server bash -c "db2sampl -force -sql i"
