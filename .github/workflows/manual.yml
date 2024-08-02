@@ -36,6 +36,6 @@ jobs:
      - run: docker ps
      - run: docker exec db2server bash -c "su - db2inst1 -c '/opt/ibm/db2/V11.5/bin/db2 list active databases'" 
      - run: sleep 30
-     - run: docker exec db2server bash -c "su - db2inst1 -c '/opt/ibm/db2/V11.5/bin/db2 connect to sample'" 
-     - run: docker exec db2server bash -c "/opt/ibm/db2/V11.5/bin/db2 connect to sample ; /opt/ibm/db2/V11.5/bin/db2 'select * from department'"
+     - run: docker exec db2server bash -c "su - db2inst1 -c '/opt/ibm/db2/V11.5/bin/db2 connect to sample'"
        if: false
+     - run: docker exec db2server bash -c "su - db2inst1 -c '/opt/ibm/db2/V11.5/bin/db2 connect to sample ; /opt/ibm/db2/V11.5/bin/db2 \"select * from department\"'"
