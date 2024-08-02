@@ -35,4 +35,4 @@ jobs:
      - run: sleep 60
      - run: docker ps
      - run: docker exec db2server bash -c "ls" 
-     - run: docker exec -t db2server bash -c "db2sampl -force -sql i"
+     - run: docker exec db2server bash -c "db2 connect to sample ; db2 'select * from department'"
