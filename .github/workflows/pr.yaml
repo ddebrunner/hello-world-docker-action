@@ -7,11 +7,8 @@ jobs:
   ddcheck:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - run: bash ./ok.sh
-    - uses: stepzen-dev/stepzen-install@v1
-    - uses: stepzen-dev/stepzen-login@v1
+    - uses: actions/checkout@v4
+    - uses: ./actions/hello
       with:
-       domain: "us-"
-       account: "abc"
        adminkey: "super-tokern"
+       token: "very-hush-hush"
