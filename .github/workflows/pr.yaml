@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: stepzen-dev/stepzen-install@v1
-    - uses: stepzen-dev/stepzen-login@v1
+    - uses: stepzen-dev/stepzen-login@fbd443909257993ef72ec459f540b9a705d250e4
       with:
        domain: "us-east-a.ibm.stepzen.net"
        account: "danville"
