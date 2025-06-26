@@ -8,10 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - run: bash ./ok.sh
     - uses: stepzen-dev/stepzen-install@v1
-    - uses: stepzen-dev/stepzen-login@v1
+    - uses: stepzen-dev/stepzen-login@2f3cb071068d59094216ad990fefbd0da5a81382
       with:
-       domain: "us-"
-       account: "abc"
-       adminkey: "super-tokern"
+       domain: "us-east-a.ibm.stepzen.net"
+       account: "danville"
+       adminkey: ${{ secrets.SZDAN2 }}
