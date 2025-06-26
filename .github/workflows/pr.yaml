@@ -13,4 +13,4 @@ jobs:
       with:
        domain: "us-east-a.ibm.stepzen.net"
        account: "danville"
-       adminkey: "super-tokern"
+       adminkey: ${{ secrets.SZDAN2 }}
