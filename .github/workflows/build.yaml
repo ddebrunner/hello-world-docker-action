@@ -5,7 +5,11 @@ jobs:
   bra:
      runs-on: ubuntu-latest
      steps:
-       - run: |
-          echo GITHUB_REF ${GITHUB_REF}
-          echo GITHUB_SHA ${GITHUB_SHA}
+         - uses: actions/setup-node@v4
+           with:
+             node-version: '22'
+             cache: 'npm'
+         - run: date
+         - uses: stepzen-dev/stepzen-install@v1
+         - run: date
   
