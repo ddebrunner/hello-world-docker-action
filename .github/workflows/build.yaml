@@ -9,7 +9,6 @@ jobs:
          - uses: actions/setup-node@v4
            with:
              node-version: '22'
-             cache: 'npm'
          - run: date
          - uses: stepzen-dev/stepzen-install@v1
          - run: date
