@@ -10,6 +10,7 @@ jobs:
            with:
              node-version: '22'
          - run: date
-         - uses: stepzen-dev/stepzen-install@v1
+         - run: npm install stepzen
          - run: date
+         - run: npm exec --package=stepzen -c 'stepzen version'
   
