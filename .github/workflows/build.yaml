@@ -1,6 +1,7 @@
 name: BR
 on:
   workflow_call:
+  workflow_dispatch:
 jobs:
   bra:
      runs-on: ubuntu-latest
