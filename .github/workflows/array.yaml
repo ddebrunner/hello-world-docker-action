@@ -2,17 +2,11 @@ name: Array
 on:
    workflow_dispatch:
 
-jobs:
+jobs:      
   doit:
+    env:
+      domains: ("us-east-a.ibm.steprz.net", "us-east-a.ibm.stepzen.net)
     runs-on: ubuntu-latest
     steps:
     - run: |
-       domains=${{
-       toJSON(
-        [
-          "us-east-a.ibm.steprz.net",
-          "us-east-a.ibm.stepzen.net"
-        ]
-       )
-       }}
        echo "domains=${domains}"
