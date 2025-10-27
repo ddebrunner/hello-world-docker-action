@@ -1,0 +1,10 @@
+name: Array
+on:
+   workflow_dispatch:
+
+jobs:
+  doit:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+       echo "domains=[\"us-east-a.ibm.steprz.net\", \"us-east-a.ibm.stepzen.net\"]"
